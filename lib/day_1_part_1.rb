@@ -1,10 +1,8 @@
-class Day1Part1
-  def initialize(input)
-    @input = input
-  end
+require_relative "advent_day"
 
+class Day1Part1 < AdventDay
   def parse
-    @input.split("\n").map { |line| line.split(" ").map(&:to_i) }
+    split_on_newline_then_split_on_space
   end
 
   def left

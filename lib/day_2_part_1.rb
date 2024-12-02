@@ -1,10 +1,8 @@
-class Day2Part1
-  def initialize(input)
-    @input = input
-  end
+require_relative "advent_day"
 
+class Day2Part1 < AdventDay
   def reports
-    @input.split("\n").map { |line| line.split(" ").map(&:to_i) }
+    split_on_newline_then_split_on_space
   end
 
   def report_not_increasing_or_decreasing?(report)
