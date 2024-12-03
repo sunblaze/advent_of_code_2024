@@ -1,9 +1,8 @@
-require "minitest/autorun"
-require_relative "../lib/day_1_part_1"
+require_relative "test_helper"
 
-class Day1Part1Test < Minitest::Test
+class Day1Part1Test < AdventTest
   def setup
-    @day1_part1 = Day1Part1.new(File.read("test/day_1_part_1_test_input.txt"))
+    @day1_part1 = Day1Part1.new(input)
   end
 
   def test_input_is_parsed_into_an_array_of_arrays
@@ -24,7 +23,7 @@ class Day1Part1Test < Minitest::Test
   end
 
   def test_real_input
-    day1_part1 = Day1Part1.new(File.read("test/day_1_part_1_real_input.txt"))
+    day1_part1 = Day1Part1.new(real_input)
     assert_equal 2742123, day1_part1.total_differences
   end
 end

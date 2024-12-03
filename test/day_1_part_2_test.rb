@@ -1,9 +1,8 @@
-require "minitest/autorun"
-require_relative "../lib/day_1_part_2"
+require_relative "test_helper"
 
-class Day1Part2Test < Minitest::Test
+class Day1Part2Test < AdventTest
   def setup
-    @day1_part2 = Day1Part2.new(File.read("test/day_1_part_1_test_input.txt"))
+    @day1_part2 = Day1Part2.new(input)
   end
 
   def test_similarities
@@ -15,7 +14,7 @@ class Day1Part2Test < Minitest::Test
   end
 
   def test_real_input
-    day1_part2 = Day1Part2.new(File.read("test/day_1_part_1_real_input.txt"))
-    assert_equal 21328497, day1_part2.sum_similarities
+    @day1_part2 = Day1Part2.new(real_input)
+    assert_equal 21328497, @day1_part2.sum_similarities
   end
 end

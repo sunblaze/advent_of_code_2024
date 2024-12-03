@@ -1,9 +1,8 @@
-require "minitest/autorun"
-require_relative "../lib/day_2_part_2"
+require_relative "test_helper"
 
-class Day2Part2Test < Minitest::Test
+class Day2Part2Test < AdventTest
   def setup
-    @day2_part2 = Day2Part2.new(File.read("test/day_2_part_1_test_input.txt"))
+    @day2_part2 = Day2Part2.new(input)
   end
 
   def test_report_array_with_missing_level
@@ -18,7 +17,7 @@ class Day2Part2Test < Minitest::Test
   end
 
   def test_real_input
-    @day2_part2 = Day2Part2.new(File.read("test/day_2_part_1_real_input.txt"))
+    @day2_part2 = Day2Part2.new(real_input)
     assert_equal 436, @day2_part2.safe_reports.count
   end
 end
