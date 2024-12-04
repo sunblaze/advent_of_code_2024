@@ -1,5 +1,4 @@
 require_relative 'advent_day'
-require 'pp'
 
 class Day4Part1 < AdventDay
   TARGET = ["X", "M", "A", "S"]

@@ -1,5 +1,4 @@
 require 'rake/testtask'
-require 'pp'
 
 Rake::TestTask.new(:test) do |t|
   t.test_files = FileList['test/*_test.rb']
