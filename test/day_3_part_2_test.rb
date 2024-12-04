@@ -1,17 +1,12 @@
 require_relative 'test_helper'
 
 class Day3Part2Test < AdventTest
-  def setup
-    super
-    @subject = subject_class.new(File.read("test/#{snake_case_name}_test_input.txt"))
-  end
-
   def test_all_statements
     assert_equal [[2, 4], :don_t, [5, 5], [11, 8], :do, [8, 5]], subject.all_statements
   end
 
   def test_reduce_statements
-    assert_equal [[2, 4], [8, 5]], subject.reduce_statements
+    assert_equal [[2, 4], [8, 5]], subject.mul_statements
   end
 
   def test_mul_results

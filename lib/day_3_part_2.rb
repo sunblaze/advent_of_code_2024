@@ -13,7 +13,7 @@ class Day3Part2 < Day3Part1
     end
   end
 
-  def reduce_statements
+  def mul_statements
     all_statements.reduce({do: true, list: []}) do |acc, statement|
       if statement == :do
         acc[:do] = true
@@ -24,9 +24,5 @@ class Day3Part2 < Day3Part1
       end
       acc
     end[:list]
-  end
-
-  def mul_results
-    reduce_statements.map { |a, b| a * b }
   end
 end

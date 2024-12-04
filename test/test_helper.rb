@@ -7,11 +7,11 @@ class AdventTest < Minitest::Test
   attr_reader :subject, :real_subject
 
   def input
-    File.read("test/#{always_use_part_1}_test_input.txt")
+    File.exist?("test/#{snake_case_name}_test_input.txt") ? File.read("test/#{snake_case_name}_test_input.txt") : File.read("test/#{always_use_part_1}_test_input.txt")
   end
 
   def real_input
-    File.read("test/#{always_use_part_1}_real_input.txt")
+    File.exist?("test/#{snake_case_name}_real_input.txt") ? File.read("test/#{snake_case_name}_real_input.txt") : File.read("test/#{always_use_part_1}_real_input.txt")
   end
 
   def snake_case_name
