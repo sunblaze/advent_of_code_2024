@@ -10,7 +10,7 @@ class Day4Part1 < AdventDay
 
   def find_forward_matches(target = TARGET, rows = parse)
     rows.reduce(0) do |acc, row|
-      (row.size - target.length).times do |i|
+      (row.size - target.length + 1).times do |i|
         if row.slice(i, target.length) == target
           acc += 1
         end

@@ -90,14 +90,14 @@ class Day4Part1Test < AdventTest
   end
 
   def test_find_diagonal_matches_reverse
-    assert_equal 1, subject.find_diagonal_matches_reverse
+    assert_equal 5, subject.find_diagonal_matches_reverse
   end
 
   def test_find_all_matches
     assert_equal 18, subject.find_all_matches
   end
 
-  # def test_find_all_matches_real
-  #   assert_equal 2226, real_subject.find_all_matches
-  # end
+  def test_find_all_matches_real
+    assert_equal 2344, real_subject.find_all_matches
+  end
 end
