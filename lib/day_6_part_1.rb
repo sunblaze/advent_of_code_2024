@@ -43,10 +43,6 @@ class Day6Part1 < AdventDay
     positions.compact
   end
 
-  def outside_grid?(position)
-    position.any? { |coord| coord < 0 || coord >= grid.length } if position
-  end
-
   def all_positions_visited
     ([starting_position] + auto_move).uniq
   end
