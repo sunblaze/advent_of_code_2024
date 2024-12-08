@@ -6,6 +6,6 @@ class Day8Part2Test < AdventTest
   end
 
   def test_real_antinodes
-    refute_equal 1210, real_subject.antinodes.size # 1210 too low
+    assert_equal 1235, real_subject.antinodes.size # 1210 too low
   end
 end

@@ -7,17 +7,24 @@ class Day8Part2 < Day8Part1
       positions.combination(2).each do |(x1, y1), (x2, y2)|
         diff_x = x1 - x2
         diff_y = y1 - y2
-        antinode_1 = [x1 + diff_x, y1 + diff_y]
-        antinode_2 = [x1 - diff_x, y1 - diff_y]
-        antinodes.add(antinode_1) unless outside_grid?(antinode_1)
-        while !outside_grid?(antinode_1)
-          antinode_1 = [antinode_1[0] + diff_x, antinode_1[1] + diff_y]
-          antinodes.add(antinode_1) unless outside_grid?(antinode_1)
+        
+        # Add points in both directions from x2,y2
+        current = [x2, y2]
+        antinodes.add(current)
+        
+        # Forward direction
+        loop do
+          current = [current[0] + diff_x, current[1] + diff_y]
+          break if outside_grid?(current)
+          antinodes.add(current)
         end
-        antinodes.add(antinode_2) unless outside_grid?(antinode_2)
-        while !outside_grid?(antinode_2)
-          antinode_2 = [antinode_2[0] - diff_x, antinode_2[1] - diff_y]
-          antinodes.add(antinode_2) unless outside_grid?(antinode_2)
+        
+        # Backward direction
+        current = [x2, y2]
+        loop do
+          current = [current[0] - diff_x, current[1] - diff_y]
+          break if outside_grid?(current)
+          antinodes.add(current)
         end
       end
     end
