@@ -39,8 +39,8 @@ class Day10Part1Test < AdventTest
 
   def test_trail_head_counts_real
     assert_nil real_subject.primary_path([0,1])
-    assert_equal 188, real_subject.trail_heads.size
+    assert_equal 188, real_subject.trail_heads
 
-    assert_equal 354, real_subject.total # 601 too high, not 396, not 354
+    assert_equal 354, real_subject.total # 601 too high
   end
 end

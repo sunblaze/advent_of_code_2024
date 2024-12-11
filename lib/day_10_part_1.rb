@@ -48,12 +48,12 @@ class Day10Part1 < AdventDay
 
   def new_trail(last_path, black_list = Set.new)
     path = last_path
-    black_list = black_list.dup
     while path.length > 1
       black_list << path.last
       path = path[0...-1]
       x, y = path.last
       height = grid[x][y].to_i
+      new_path = []
       loop do
         found = false
         ROTATIONS.keys.each do |rotation|
@@ -61,7 +61,7 @@ class Day10Part1 < AdventDay
           unless outside_grid?(look_ahead) || black_list.include?(look_ahead)
             look_ahead_height = grid[look_ahead[0]][look_ahead[1]].to_i
             if look_ahead_height == height+1
-              path << look_ahead
+              new_path << look_ahead
               x, y = look_ahead
               height = look_ahead_height
               found = true
@@ -69,30 +69,21 @@ class Day10Part1 < AdventDay
             end
           end
         end
-        return path if height == 9
+        return path + new_path if height == 9
         break if !found
       end
     end
-    nil
   end
 
   def count(trail_head)
-    # debug
-    display_grid = input.split("\n").map { |line| line.chars }.transpose
-    display_grid[trail_head[0]][trail_head[1]] = "X"
-    display_grid.transpose.each do |line|
-      puts line.join
-    end
-
     black_list = Set.new
     count = 0
     last_path = primary_path(trail_head)
     while last_path
       count += 1
-      black_list << last_path.last
-      pp(trail_head:,black_list:, count:, last_path:)
       last_path = new_trail(last_path, black_list)
     end
+    pp(trail_head:, count:)
     count
   end
 
