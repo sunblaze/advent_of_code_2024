@@ -1,3 +1,5 @@
+require 'debug'
+
 class AdventDay
   attr_reader :input
 
